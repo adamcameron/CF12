@@ -6,14 +6,6 @@ component extends="structs.Baseline" {
 
 		super.run();
 
-		describe("basline", function(){
-			it("maintains key order", function(){
-				var ordered = getTestStruct();
-				var actualKeys = reduceKeysToList(ordered);
-				var expectedKeys = getExpectedKeysFromTestStruct();
-				expect(actualKeys).toBe(expectedKeys);
-			});
-		});
 		describe("Testing the order of key extraction", function(){
 			it("returns keys in expected order from keyList()", function(){
 				var ordered = getTestStruct();

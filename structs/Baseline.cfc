@@ -3,11 +3,17 @@ component extends="testbox.system.BaseSpec" {
 	expectedClassName = "coldfusion.runtime.StructOrdered";
 
 	function run(){
-		describe("basline", function(){
+		describe("baseline", function(){
 			it("has the correct class", function(){
 				var ordered = getTestStruct();
 				var className = ordered.getClass().getName();
 				expect(className).toBe(expectedClassName);
+			});
+			it("maintains expected key order", function(){
+				var ordered = getTestStruct();
+				var actualKeys = reduceKeysToList(ordered);
+				var expectedKeys = getExpectedKeysFromTestStruct();
+				expect(actualKeys).toBe(expectedKeys);
 			});
 		});
 		describe("interaction", function(){
