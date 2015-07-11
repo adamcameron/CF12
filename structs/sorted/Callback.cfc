@@ -11,7 +11,7 @@ component extends="structs.sorted.Simple" {
 			var key1Len = key1AsString.len();
 			var key2Len = key2AsString.len();
 			var keyComparison = sgn(key1Len-key2Len);
-			if (!keyComparison) return keyComparison; // sort by length first
+			if (keyComparison) return keyComparison; // sort by length first
 			return compareNoCase(key1,key2); // within that, sort on key name
 		});
 		sorted.first = 2;
