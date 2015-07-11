@@ -6,7 +6,7 @@ component extends="structs.Baseline" {
 		super.run();
 
 		describe("sorting", function(){
-			it("returns keys in desc order when appropriate", function(){
+			it("returns keys in appropriate", function(){
 				var sorted = getTestStructWithDirection("desc");
 				var actualKeys = reduceKeysToList(sorted);
 				var expectedKeys = getExpectedKeysFromTestStructWithDirection("desc");
@@ -17,7 +17,6 @@ component extends="structs.Baseline" {
 		describe("Testing the order of key extraction when sorted asc", testKeyExtractionByDirectionAsc);
 		describe("Testing the order of key extraction when sorted desc", testKeyExtractionByDirectionDesc);
 	}
-
 
 
 	function getTestStruct(){
@@ -44,7 +43,6 @@ component extends="structs.Baseline" {
 		return sortedKeys;
 
 	}
-
 
 	testKeyExtractionByDirectionAsc = function(){
 		testKeyExtractionByDirection("asc");
