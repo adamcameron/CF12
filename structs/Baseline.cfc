@@ -1,6 +1,6 @@
 component extends="testbox.system.BaseSpec" {
 
-	expectedClassName = "coldfusion.runtime.StructOrdered";
+	expectedClassName = ""; // not the best, but this should be an abstract class
 
 	function run(){
 		describe("baseline", function(){
