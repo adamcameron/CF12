@@ -1,12 +1,12 @@
-component extends="testbox.system.BaseSpec" {
+component extends="structs.Baseline" {
+
+	expectedClassName = "coldfusion.runtime.StructOrdered";
 
 	function run(){
+
+		super.run();
+
 		describe("basline", function(){
-			it("has the correct class", function(){
-				var ordered = getTestStruct();
-				var className = ordered.getClass().getName();
-				expect(className).toBe("coldfusion.runtime.StructOrdered");
-			});
 			it("maintains key order", function(){
 				var ordered = getTestStruct();
 				var actualKeys = reduceKeysToList(ordered);
@@ -14,24 +14,7 @@ component extends="testbox.system.BaseSpec" {
 				expect(actualKeys).toBe(expectedKeys);
 			});
 		});
-		describe("interaction", function(){
-			it("doesn't change type if a normal struct is appended", function(){
-				var ordered = getTestStruct();
-
-				var ordinary = {
-					ordinaryKey = 2
-				};
-				ordered.append(ordinary);
-
-				var className = ordered.getClass().getName();
-				expect(className).toBe("coldfusion.runtime.StructOrdered");
-
-				var actualKeys = reduceKeysToList(ordered);
-				var expectedKeys = getExpectedKeysFromTestStruct().listAppend(ordinary.keyList());
-				expect(actualKeys).toBe(expectedKeys);
-			});
-		});
-		describe("keys", function(){
+		describe("Testing the order of key extraction", function(){
 			it("returns keys in expected order from keyList()", function(){
 				var ordered = getTestStruct();
 				var actualKeys = ordered.keyList();
@@ -44,53 +27,25 @@ component extends="testbox.system.BaseSpec" {
 				var expectedKeys = getExpectedKeysFromTestStruct();
 				expect(actualKeys).toBe(expectedKeys);
 			});
-		});
-
-		describe("method/function compat", function(){
-			it("map() returns ordered struct", function(){
+			it("returns the keys in expected order from collection loop", function(){
 				var ordered = getTestStruct();
-				var mapped = ordered.map(function(k,v,struct){
-					return true;
-				});
-				var className = mapped.getClass().getName();
-				expect(className).toBe("coldfusion.runtime.StructOrdered");
+				actualKeys = "";
+				for (var key in ordered){
+					actualKeys = actualKeys.listAppend(key);
+				}
+				var expectedKeys = getExpectedKeysFromTestStruct();
+				expect(actualKeys).toBe(expectedKeys);
 			});
-			it("structMap() returns ordered struct", function(){
+			it("returns the keys in expected order from cfloop", function(){
+				/* see 3754577
 				var ordered = getTestStruct();
-				var mapped = structMap(ordered, function(k,v,struct){
-					return true;
-				});
-				var className = mapped.getClass().getName();
-				expect(className).toBe("coldfusion.runtime.StructOrdered");
-			});
-			it("works with duplicate()", function(){
-				var ordered = getTestStruct();
-				var duplicated = ordered.duplicate();
-
-				var className = duplicated.getClass().getName();
-				expect(className).toBe("coldfusion.runtime.StructOrdered");
-				expect(duplicated).toBe(ordered);
-			});
-			it("works with copy()", function(){
-				var ordered = getTestStruct();
-				var copied = ordered.copy();
-
-				var className = copied.getClass().getName();
-				expect(className).toBe("coldfusion.runtime.StructOrdered");
-				expect(copied).toBe(ordered);
-			});
-			it("works with isStruct()", function(){
-				var ordered = getTestStruct();
-
-				expect(isStruct(ordered)).toBeTrue();
-			});
-			it("works with clear()", function(){
-				var ordered = getTestStruct();
-				ordered.clear();
-
-				var className = ordered.getClass().getName();
-				expect(className).toBe("coldfusion.runtime.StructOrdered");
-				expect(ordered).toBe(structNew("ordered"));
+				actualKeys = "";
+				cfloop(item="key", collection=ordered){
+					actualKeys = actualKeys.listAppend(key);
+				}
+				var expectedKeys = getExpectedKeysFromTestStruct();
+				expect(actualKeys).toBe(expectedKeys);
+				*/
 			});
 		});
 	}
@@ -109,11 +64,6 @@ component extends="testbox.system.BaseSpec" {
 		return "first,second,third,fourth,fifth";
 	}
 
-	function reduceKeysToList(struct){
-		return struct.reduce(function(list,key){
-			return list.listAppend(key);
-		}, "");
-	}
-
-
 }
+
+
