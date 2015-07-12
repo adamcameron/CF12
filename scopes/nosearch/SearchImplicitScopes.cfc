@@ -9,6 +9,8 @@ component extends=testbox.system.BaseSpec {
 				var result = URL.urlVariableToFind;
 				expect(result).toBeTrue();
 			});
+		});
+		describe("Functionality tests", function(){
 			it("does not find unscoped URL variables", function(){
 				expect(function(){
 				var result = urlVariableToFind;
