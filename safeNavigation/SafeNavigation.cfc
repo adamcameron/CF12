@@ -4,23 +4,28 @@ component extends=testbox.system.BaseSpec {
 		describe("tests with nulls", function(){
 			it("demonstrates a baseline test without the operator errors", function(){
 				expect(function(){
-					var result = a.b.c.d;
+					a.b.c.d;
 				}).toThrow(message="Variable A is undefined.");
 			});
 			it("works with the same code as the baseline, just using the operator", function(){
 				expect(function(){
-					var result = a?.b?.c?.d;
+					a?.b?.c?.d;
 				}).notToThrow(message="Variable A is undefined.");
 			});
 			it("works when using a method returning null", function(){
 				expect(function(){
 					var nullFunction = function(){};
-					var result = nullFunction()?.b;
+					nullFunction()?.b;
 				}).notToThrow();
 			});
 			it("works when called on a null", function(){
 				expect(function(){
-					var result = javacast("null", "")?.b;
+					javacast("null", "")?.b;
+				}).notToThrow();
+			});
+			it("works when using a native method", function(){
+				expect(function(){
+					a?.trim();
 				}).notToThrow();
 			});
 		});
