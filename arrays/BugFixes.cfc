@@ -1,22 +1,21 @@
 component extends=testbox.system.BaseSpec {
 
+	array = ["tahi", "rua", "toru", "wha"];
+
 	function run(){
 		describe("arrayFindNoCase() tests", function(){
 			it("performs a case-insensitive search on simple values", function(){
-				var array = ["tahi", "rua", "toru", "wha"];
 				var result = arrayFindNoCase(array, "TORU");
 				var expected = 3;
 				expect(result).toBe(expected);
 			});
 			it("throws an exception if the second argument is not a simple value", function(){
 				expect(function(){
-					var array = ["tahi", "rua", "toru", "wha"];
 					var result = arrayFindNoCase(array, ["TORU"]);
 				}).toThrow(type="java.lang.IllegalArgumentException");
 			});
 			it("throws an exception if the first argument contains elements that are not simple values", function(){
 				expect(function(){
-					var array = ["tahi", ["rua"], "toru", {four="wha"}];
 					var result = arrayFindNoCase(array, ["TORU"]);
 				}).toThrow(type="java.lang.IllegalArgumentException");
 			});
@@ -31,14 +30,12 @@ component extends=testbox.system.BaseSpec {
 
 		describe(".findNoCase() tests", function(){
 			it("performs a case-insensitive search on simple values", function(){
-				var array = ["tahi", "rua", "toru", "wha"];
 				var result = array.findNoCase("TORU");
 				var expected = 3;
 				expect(result).toBe(expected);
 			});
 			it("throws an exception if the second argument is not a simple value", function(){
 				expect(function(){
-					var array = ["tahi", "rua", "toru", "wha"];
 					var result = array.findNoCase(["TORU"]);
 				}).toThrow(type="java.lang.IllegalArgumentException");
 			});
