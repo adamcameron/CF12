@@ -1,4 +1,4 @@
-component extends="structs.Baseline" {
+component extends=structs.Baseline {
 
 	expectedClassName = "coldfusion.runtime.StructOrdered";
 

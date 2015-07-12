@@ -1,4 +1,4 @@
-component extends="testbox.system.BaseSpec" {
+component extends=testbox.system.BaseSpec {
 
 	expectedClassName = ""; // not the best, but this should be an abstract class
 

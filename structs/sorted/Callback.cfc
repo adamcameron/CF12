@@ -1,4 +1,4 @@
-component extends="structs.sorted.Simple" {
+component extends=structs.sorted.Simple {
 
 	function run(){
 		super.run();
