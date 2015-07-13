@@ -38,6 +38,7 @@ component extends=testbox.system.BaseSpec {
 				originalStruct[element] = element.reverse();
 				return originalStruct;
 			}, {});
+
 			it("works with .sort() accepting a callback for its sorting comparator", function(){
 				var result = originalStruct.sort(comparator);
 				var sortedByLengthThenValue = ["whero","karaka","papura","kowhai","kakariki","kikorangi","poropango"];
@@ -55,7 +56,24 @@ component extends=testbox.system.BaseSpec {
 		});
 
 		describe("query sort() tests", function(){
-			// TBC
-		});
+			var comparator = function(e1, e2){
+				throw;
+			};
+
+			var originalQuery = originalList.listReduce(function(originalQuery, element, index){
+				originalQuery.addRow([[index,element]]);
+				return originalQuery;
+			}, queryNew("id,key"));
+
+			it("works with .sort() accepting a callback for its sorting comparator", function(){
+				var result = originalQuery.sort(comparator);
+				// method not implemented
+			}, [], true);
+
+			it("works with querySort() accepting a callback for its sorting comparator", function(){
+				var result = querySort(originalQuery, comparator);
+				// function not implemented
+			}, [], true);
+		}); 
 	}
 }
