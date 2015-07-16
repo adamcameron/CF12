@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 https://bugbase.adobe.com/index.cfm?event=bug&id=3597432
-=======
 component extends=testbox.system.BaseSpec {
 
 	function run(){
@@ -132,4 +130,3 @@ component extends=testbox.system.BaseSpec {
 		});
 	}
 }
->>>>>>> 34848280a8e2ebeb7f9df8f8aa63a82a815460ed
