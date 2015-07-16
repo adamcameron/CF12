@@ -212,6 +212,37 @@ component extends=testbox.system.basespec {
 					testExpectations(results, expected);
 				});
 			});
+			describe("Pattern with multiple subexpression capture", function(){
+				var pattern = "\b((\w{2})(\w{2}))\b";
+				var expected = [
+					{pos=[4,4,4,6], len=[4,4,2,2], match=["will", "will", "wi", "ll"]},
+					{pos=[16,16,16,18], len=[4,4,2,2], match=["find", "find", "fi", "nd"]},
+					{pos=[29,29,29,31], len=[4,4,2,2], match=["four", "four", "fo", "ur"]},
+					{pos=[50,50,50,52], len=[4,4,2,2], match=["this", "this", "th", "is"]}
+				];
+
+				it("returns expected pos,len,match when using reFind()", function(){
+					var results = reFind(pattern, haystack, 1, true, "ALL");
+					writeDump(results);
+
+					testExpectations(results, expected);
+				});
+				it("returns expected pos,len,match when using reFindNoCase()", function(){
+					var results = reFindNoCase(pattern, haystack, 1, true, "ALL");
+
+					testExpectations(results, expected);
+				});
+				it("returns expected pos,len,match when using .reFind()", function(){
+					var results = haystack.reFind(pattern, 1, true, "ALL");
+
+					testExpectations(results, expected);
+				});
+				it("returns expected pos,len,match when using .reFindNoCase()", function(){
+					var results = haystack.reFindNoCase(pattern, 1, true, "ALL");
+
+					testExpectations(results, expected);
+				});
+			});
 		});
 	}
 }
