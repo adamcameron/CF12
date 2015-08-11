@@ -5,9 +5,9 @@ component {
 	this.name = "test01";
 	this.sessionManagement = true;
 
-	CRLF = chr(13) & chr(10);
+	variables.CRLF = chr(13) & chr(10);
 	
-	writeOutput("#getCurrentTemplatePath()# called#CRLF#");
+	writeOutput("#getCurrentTemplatePath()# called#variables.CRLF#");
 
 	function onApplicationStart(){
 		writeOutput("#getFunctionCalledName()#() called#CRLF#");
