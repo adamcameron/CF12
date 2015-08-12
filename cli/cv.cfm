@@ -1,1 +1,1 @@
-<cfoutput><pre>#createObject("java", "me.adamcameron.miscellany.ClassViewer").viewObject(CLI)#</pre></cfoutput>
+<cfoutput>#createObject("java", "me.adamcameron.miscellany.ClassViewer").viewObject(CLI)#</cfoutput>
