@@ -27,7 +27,7 @@ component extends=testbox.system.BaseSpec {
 				expect(result).toBe(expected);
 			});
 		});
-		describe("filter() tests", function(){
+ 		describe("filter() tests", function(){
 			var colour = "papura";
 			var expected = queryExecute(
 				"SELECT * FROM originalQuery WHERE colour = ?",
@@ -40,7 +40,7 @@ component extends=testbox.system.BaseSpec {
 					return element.colour == colour;
 				});
 				expect(result).toBe(expected);
-			};
+			});
 
 			it("works with queryFilter()", function(){
 				var result = queryFilter(originalQuery, function(element){
