@@ -8,7 +8,7 @@ if (isDefined("CLI")){
 }
 
 cfcFiles = directoryList(testPath, true, "array", "*.cfc", "directory,name").reduce(function(cfcs, file){
-	var cfcPath = file.replace(basePath, "").reReplace("[\\/]",".","all").reReplace("\.cfc", "");
+	var cfcPath = file.replace(basePath, "").reReplace("[\\/]",".","all").reReplace("\.cfc$", "");
 	var o = false;
 	try {
 		silencer(function(){
