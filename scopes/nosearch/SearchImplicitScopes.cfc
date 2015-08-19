@@ -26,6 +26,12 @@ component extends=testbox.system.BaseSpec {
 				var result = script_name;
 				}).toThrow(message="Variable script_name is undefined.");
 			});
+			it("does find unscoped variables-scope variables", function(){
+				variables.variableToFind = "should be found";
+				var result = variableToFind;
+
+				expect(result).toBe(variables.variableToFind);
+			});
 		});
 	}
 }
