@@ -223,7 +223,6 @@ component extends=testbox.system.basespec {
 
 				it("returns expected pos,len,match when using reFind()", function(){
 					var results = reFind(pattern, haystack, 1, true, "ALL");
-					writeDump(results);
 
 					testExpectations(results, expected);
 				});
