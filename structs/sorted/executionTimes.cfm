@@ -30,9 +30,6 @@ timeIt("Get keys from sorted struct", function(){
 	writeOutput("#keys.len()# keys extracted from sortedStruct<br>");
 });
 
-// writeDump(var=standardStruct, label="standardStruct");
-// writeDump(var=sortedStruct, label="sortedStruct");
-
 
 function timeIt(label, task){
 	writeOutput("<h3>#label#</h3>");
