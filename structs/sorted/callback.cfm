@@ -1,7 +1,11 @@
 <cfscript>
 sorted = structNew("sorted", function(e1,e2){
-	writeDump(arguments); 
-	throw;
+	return compare(e1,e2);
 });
-sorted.key = "value";
+sorted.azure = "blue";
+sorted.adze = "tool";
+sorted.adam = "dork";
+sorted.alabama = 3;
+
+writeDump(sorted);
 </cfscript>

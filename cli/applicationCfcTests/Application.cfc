@@ -2,34 +2,30 @@
 
 component {
 	
-	this.name = "test01";
+	this.name = "test03";
 	this.sessionManagement = true;
 
-	variables.CRLF = chr(13) & chr(10);
-	
-	writeOutput("#getCurrentTemplatePath()# called#variables.CRLF#");
+	cli.writeln("#getCurrentTemplatePath()# called");
 
 	function onApplicationStart(){
-		writeOutput("#getFunctionCalledName()#() called#CRLF#");
+		cli.writeln("#getFunctionCalledName()#() called");
 	}
 
 	function onSessionStart(){
-		writeOutput("#getFunctionCalledName()#() called#CRLF#");
+		cli.writeln("#getFunctionCalledName()#() called");
 	}
 
 	function onRequestStart(){
-		writeOutput("#getFunctionCalledName()#() called#CRLF#");
+		cli.writeln("#getFunctionCalledName()#() called");
 	}
 
 	function onRequest(){
-		writeOutput("#getFunctionCalledName()#() called#CRLF#");
-		writeOutput(CRLF);
+		cli.writeln("#getFunctionCalledName()#() called");
 		include arguments[1];
-		writeOutput(CRLF);
 	}
 
 	function onRequestEnd(){
-		writeOutput("#getFunctionCalledName()#() called#CRLF#");
+		cli.writeln("#getFunctionCalledName()#() called");
 	}
 
 }
