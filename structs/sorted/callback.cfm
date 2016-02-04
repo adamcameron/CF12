@@ -1,6 +1,5 @@
 <cfscript>
 sorted = structNew("sorted", function(e1,e2){
-	writeDump(arguments);abort;
 	return compare(e1,e2);
 });
 sorted.azure = "blue";
