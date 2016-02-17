@@ -11,7 +11,7 @@ colours = queryNew("id,en,mi", "integer,varchar,varchar", [
 
 maoriColours = colours.map(function(colour, index, colours){
 	return {colour=colour.mi};
-});	
+},colours);	
 
 writeDump(var=maoriColours);
 
