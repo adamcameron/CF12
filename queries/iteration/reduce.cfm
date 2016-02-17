@@ -16,5 +16,5 @@ shortestMaoriDayName = week.reduce(function(shortest,number){
 	return number.mi.len() < shortest.len() ? number.mi : shortest;
 }, "");
 
-CLI.writeLn(shortestMaoriDayName);
+writeOutput(shortestMaoriDayName);
 </cfscript>

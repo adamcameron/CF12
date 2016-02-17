@@ -9,11 +9,10 @@ colours = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[10,"violet","papura"]
 ]);
 
-sortedColours = colours.sort(function(c1,c2){
-	writeDump(c1);
-	abort;
-	return compare(c1.mi, c2.mi);
-});
+maoriColours = colours.map(function(colour, index, colours){
+	return {mi=colour.mi};
+},queryNew("mi","varchar"));	
 
-writeDump(sortedColours);
+writeDump(var=maoriColours);
+
 </cfscript>
