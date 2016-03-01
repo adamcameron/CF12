@@ -10,9 +10,8 @@ colours = queryNew("id,en,mi", "integer,varchar,varchar", [
 ]);
 
 maoriColours = colours.map(function(colour, index, colours){
-	return {mi=colour.mi};
+	return {mi=colour.mi, en=colour.en};
 },queryNew("mi","varchar"));	
 
 writeDump(var=maoriColours);
-
 </cfscript>

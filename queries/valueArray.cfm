@@ -9,7 +9,7 @@ colours = queryNew("id,en,mi", "integer,varchar,varchar", [
 	[10,"violet","papura"]
 ]);
 
-writeDump(colours.valueArray("mi"));
+writeDump(valueArray(colours, "mi"));
 
-writeDump(colours.quotedValueArray("id"));
+writeDump(colours.valueArray("id"));
 </cfscript>

@@ -1,8 +1,8 @@
 <cfscript>
 replacer = function(){
-	writeDump(arguments);
+writeDump(arguments);abort;
 	return "replacement";
 };
-result = replaceNoCase("source to find match", "match", replacer);
+result = replace("source to find match", "match", replacer);
 writeDump(variables);
 </cfscript>
