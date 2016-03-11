@@ -1,1 +1,0 @@
-<cfoutput>#CLI.getClass().getName()#</cfoutput>

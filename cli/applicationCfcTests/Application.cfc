@@ -2,7 +2,7 @@
 
 component {
 	
-	this.name = "test03";
+	this.name = "test04";
 	this.sessionManagement = true;
 
 	cli.writeln("#getCurrentTemplatePath()# called");
@@ -28,4 +28,11 @@ component {
 		cli.writeln("#getFunctionCalledName()#() called");
 	}
 
+	function onSessionEnd(){
+		cli.writeln("#getFunctionCalledName()#() called");
+	}
+
+	function onApplicationEnd(){
+		cli.writeln("#getFunctionCalledName()#() called");
+	}
 }
